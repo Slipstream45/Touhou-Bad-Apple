@@ -4,6 +4,8 @@ I am completing my CSE degree now and building this application is my duty towar
 
 # So here it is!!
 
+[![bad apple](https://img.youtube.com/vi/tLIH28BSgRA/0.jpg)](https://www.youtube.com/watch?v=tLIH28BSgRA)
+
 # Steps to use it
 
 1. Clone Repo
