@@ -13,7 +13,7 @@ I am completing my CSE degree now and building this application is my duty towar
    ```
 4. Get the required modules
  ```python
-   pip: -r requirements.txt
+   pip -r requirements.txt
  ```
 5. Run the file!
  ```python3
