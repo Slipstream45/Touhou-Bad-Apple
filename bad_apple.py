@@ -10,30 +10,30 @@ video_path = 'bad_apple_fps60.mp4'
 # Path to the audio file (MP3 format)
 audio_path = 'bad_apple.mp3'
 
-# Resize dimensions for the ASCII animation
-
 # Extract the width and height values
+# Cannot go full screen :(
 WIDTH = 80
 HEIGHT = 40
 
-# ASCII characters for the animation (customize as desired)
+# ASCII characters for the animation (customize as desired) but not recommended!!
 ASCII_CHARS = '@#S%?*+;:, '
 
-# Calculate the number of intensity levels
+# intensity levels
 num_levels = len(ASCII_CHARS)
 
 # Load the video file
 video = mp.VideoFileClip(video_path)
 
-# Resize the video to fit the terminal dimensions
+# fit the terminal dimensions (this is not working but breaks on run so I kept it here :))
 video_resized = video.resize((WIDTH, HEIGHT))
 
-# Load the audio file
+# audio file
 playsound(audio_path, block=False)
 
 # Iterate through each frame of the video
 for frame in video_resized.iter_frames(fps=video.fps):
-    # Convert the frame to grayscale
+    # Convert the frame to grayscale EZ 
+    
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
 
     # Resize the frame to fit the terminal dimensions
@@ -57,3 +57,4 @@ for frame in video_resized.iter_frames(fps=video.fps):
 
     # Clear the terminal and print the ASCII frame
     print('\033[H\033[J' + ascii_frame)
+
