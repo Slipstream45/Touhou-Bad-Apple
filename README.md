@@ -11,7 +11,12 @@ I am completing my CSE degree now and building this application is my duty towar
 3. ```bash
    cd Touhou-Bad-Apple
    ```
-4. ```python3
-   python3 bad_apply.py
-   ```
-5. Enjoy!
+4. Get the required modules
+ ```python
+   pip: -r requirements.txt
+ ```
+5. Run the file!
+ ```python3
+   python3 bad_apple.py
+ ```
+7. Enjoy!
