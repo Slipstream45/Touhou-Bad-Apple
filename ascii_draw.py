@@ -1,35 +1,33 @@
+#This is just the rendering with no sound. Go to bad_apple.py for both!
+#TODO: experiment with other methods
 import moviepy.editor as mp
 import numpy as np
 import cv2
 
-# Path to the input video file
+#Path to the input video file
 video_path = 'bad_apple_fps60.mp4'
 
-# Resize dimensions for the ASCII animation
-WIDTH = 80
-HEIGHT = 40
+#Resize dimensions for the ASCII animation
+#Size down when running sound cause of sync issues
+WIDTH = 120
+HEIGHT = 80
 
-# ASCII characters for the animation (customize as desired)
+#ASCII characters for the animation (customize as desired) but not recommended!
 ASCII_CHARS = '@#S%?*+;:, '
 
-# Calculate the number of intensity levels
+#Calculate the number of intensity levels
 num_levels = len(ASCII_CHARS)
 
-# Load the video file
+#Load the video file
 video = mp.VideoFileClip(video_path)
 
-# Resize the video to fit the terminal dimensions
+#Resize the video to fit the terminal dimensions
 video_resized = video.resize((WIDTH, HEIGHT))
 
-# Iterate through each frame of the video
 for frame in video_resized.iter_frames(fps=video.fps):
-    # Convert the frame to grayscale
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
-
-    # Resize the frame to fit the terminal dimensions
     resized_frame = cv2.resize(gray_frame, (WIDTH, HEIGHT))
 
-    # Map the pixel values to ASCII characters
     ascii_frame = ''
     for row in resized_frame:
         for pixel in row:
@@ -44,6 +42,5 @@ for frame in video_resized.iter_frames(fps=video.fps):
             ascii_frame += ASCII_CHARS[intensity]
 
         ascii_frame += '\n'
-
-    # Clear the terminal and print the ASCII frame
+    #ANSI for clearing terminal
     print('\033[H\033[J' + ascii_frame)
