@@ -12,7 +12,7 @@ video_path = 'bad_apple_fps60.mp4'
 WIDTH = 120
 HEIGHT = 80
 
-#ASCII characters for the animation (customize as desired) but not recommended!
+#ASCII characters for the animation (customize as desired) but not reccommended!!
 ASCII_CHARS = '@#S%?*+;:, '
 
 #Calculate the number of intensity levels
