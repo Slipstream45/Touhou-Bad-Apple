@@ -31,20 +31,20 @@ playsound(audio_path, block=False)
 for frame in video_resized.iter_frames(fps=video.fps):
     #Convert the frame to grayscale EZ 
     
-    gray_frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+    grey_frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
 
     #Resize the frame to fit the terminal dimensions
-    resized_frame = cv2.resize(gray_frame, (WIDTH, HEIGHT))
+    new_frame = cv2.resize(grey_frame, (WIDTH, HEIGHT))
 
     #ASCII mapping (restrict bounds to just the ASCII chars we have) 
     #TODO: can this be more good?
     ascii_frame = ''
-    for row in resized_frame:
+    for row in new_frame:
         for pixel in row:
             #Calculate the intensity level
             intensity = int(pixel / 255 * num_levels)
 
-            #Ensure the intensity is within the valid range
+            #Restrict Intensity within num_levels and in proper range
             if intensity >= num_levels:
                 intensity = num_levels - 1
 
